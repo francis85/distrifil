@@ -76,41 +76,5 @@ class Recibo extends Comprobante
         return $this->forma_pago;
     }
     
-    public function __construct()
-    {
-        $this->cheques = new \Doctrine\Common\Collections\ArrayCollection();
-    }
     
-    /**
-     * Add cheques
-     *
-     * @param \Distrifil\CuentaBundle\Entity\Cheque $cheques
-     * @return Recibo
-     */
-    public function addCheques(\Distrifil\CuentaBundle\Entity\Cheque $cheques)
-    {
-        $this->cheques[] = $cheques;
-    
-        return $this;
-    }
-
-    /**
-     * Remove cheques
-     *
-     * @param \Distrifil\CuentaBundle\Entity\Cheque $cheques
-     */
-    public function removeCheques(\Distrifil\CuentaBundle\Entity\Cheque $cheques)
-    {
-        $this->cheques->removeElement($cheques);
-    }
-
-    /**
-     * Get cheques
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getCheques()
-    {
-        return $this->cheques;
-    }
 }

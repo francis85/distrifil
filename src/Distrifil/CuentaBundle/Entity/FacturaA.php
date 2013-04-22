@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="factura")
  * @ORM\Entity(repositoryClass="Distrifil\CuentaBundle\Entity\FacturaRepository")
  */
-class Factura extends Comprobante
+class FacturaA extends Comprobante
 {
     /**
      * @var integer
@@ -20,7 +20,8 @@ class Factura extends Comprobante
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
-
+    
+    
     /**
      * @var float
      *

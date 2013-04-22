@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Cuenta
  *
- * @ORM\Table()
+ * @ORM\Table("cuenta")
  * @ORM\Entity(repositoryClass="Distrifil\CuentaBundle\Entity\CuentaRepository")
  */
 class Cuenta
@@ -22,9 +22,8 @@ class Cuenta
     private $id;
 
     /**
-     * @var string
      *
-     * @ORM\Column(name="cliente", type="string", length=100)
+     * @ORM\OneToOne(targetEntity="Cliente", mappedBy="id")
      */
     private $cliente;
 
@@ -54,29 +53,6 @@ class Cuenta
     }
 
     /**
-     * Set cliente
-     *
-     * @param string $cliente
-     * @return Cuenta
-     */
-    public function setCliente($cliente)
-    {
-        $this->cliente = $cliente;
-    
-        return $this;
-    }
-
-    /**
-     * Get cliente
-     *
-     * @return string 
-     */
-    public function getCliente()
-    {
-        return $this->cliente;
-    }
-
-    /**
      * Set saldo
      *
      * @param float $saldo
@@ -99,26 +75,5 @@ class Cuenta
         return $this->saldo;
     }
 
-    /**
-     * Set comprobante
-     *
-     * @param string $comprobante
-     * @return Cuenta
-     */
-    public function setComprobante($comprobante)
-    {
-        $this->comprobante = $comprobante;
-    
-        return $this;
-    }
 
-    /**
-     * Get comprobante
-     *
-     * @return string 
-     */
-    public function getComprobante()
-    {
-        return $this->comprobante;
-    }
 }

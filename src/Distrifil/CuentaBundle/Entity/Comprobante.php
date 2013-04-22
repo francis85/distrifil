@@ -35,16 +35,17 @@ class Comprobante
     private $fecha;
     
     /**
-     * @ORM\OneToOne(targetEntity="Cliente", mappedBy="id")
+     * @ORM\ManyToOne(targetEntity="Cliente", reversedBy="id")
+     * @ORM\JoinColumn
      * 
      */
-    protected $cliente;
+    private $cliente;
     
     /**
      * @ORM\OneTOMany(targetEntity="Linea", mappedBy="comp")
      * 
      */
-    protected $linea;
+    private $lineas;
     
     /**
      * @var integer
@@ -83,62 +84,6 @@ class Comprobante
         $this->fecha = $fecha;
     }
     
-    public function setCliente(\Distrifil\CuentaBundle\Entity\Cliente $cliente = null)
-    {
-        $this->cliente = $cliente;
-    
-        return $this;
-    }
-
-    /**
-     * Get cliente
-     *
-     * @return \Distrifil\CuentaBundle\Entity\Cliente 
-     */
-    public function getCliente()
-    {
-        return $this->cliente;
-    }
-
-    
-    public function __construct()
-    {
-        $this->linea = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-    
-    /**
-     * Add linea
-     *
-     * @param \Distrifil\CuentaBundle\Entity\Linea $linea
-     * @return Categoria
-     */
-    public function addLinea(\Distrifil\CuentaBundle\Entity\Linea $linea)
-    {
-        $this->linea[] = $linea;
-    
-        return $this;
-    }
-
-    /**
-     * Remove linea
-     *
-     * @param \Distrifil\CuentaBundle\Entity\Linea $linea
-     */
-    public function removeProducto(\Distrifil\CuentaBundle\Entity\Linea $linea)
-    {
-        $this->linea->removeElement($linea);
-    }
-
-    /**
-     * Get linea
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getlinea()
-    {
-        return $this->linea;
-    }
-
     public function getAfecta() {
         return $this->afecta;
     }
@@ -162,8 +107,6 @@ class Comprobante
     public function setTotal($total) {
         $this->total = $total;
     }
-
-
     
 }
 ?>

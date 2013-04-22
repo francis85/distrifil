@@ -66,52 +66,6 @@ class Linea
     }
 
     /**
-     * Set comp
-     *
-     * @param string $comp
-     * @return Linea
-     */
-    public function setComp($comp)
-    {
-        $this->comp = $comp;
-    
-        return $this;
-    }
-
-    /**
-     * Get comp
-     *
-     * @return string 
-     */
-    public function getComp()
-    {
-        return $this->comp;
-    }
-
-    /**
-     * Set prod
-     *
-     * @param string $prod
-     * @return Linea
-     */
-    public function setProd($prod)
-    {
-        $this->prod = $prod;
-    
-        return $this;
-    }
-
-    /**
-     * Get prod
-     *
-     * @return string 
-     */
-    public function getProd()
-    {
-        return $this->prod;
-    }
-
-    /**
      * Set cant
      *
      * @param integer $cant
