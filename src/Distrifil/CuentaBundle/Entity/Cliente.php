@@ -55,6 +55,11 @@ class Cliente
      * @ORM\Column(name="locali", type="string", length=100)
      */
     private $locali;
+    
+    /**
+     * @ORM\OneToOne(targetEntity="Cuenta", mappedBy="cliente")
+     */
+    private $cuenta
 
 
     /**
@@ -159,4 +164,27 @@ class Cliente
         return $this->cond_iva;
     }
     
+
+    /**
+     * Set locali
+     *
+     * @param string $locali
+     * @return Cliente
+     */
+    public function setLocali($locali)
+    {
+        $this->locali = $locali;
+    
+        return $this;
+    }
+
+    /**
+     * Get locali
+     *
+     * @return string 
+     */
+    public function getLocali()
+    {
+        return $this->locali;
+    }
 }

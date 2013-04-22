@@ -20,6 +20,14 @@ class NotaCredito extends Comprobante
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
-}
 
-?>
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+}

@@ -25,20 +25,20 @@ class Linea
 
     /**
      *
-     * @ORM\ManyToOne(targetEntity="Comprobante", inversedBy="linea", cascade={"persist"})
+     * @ORM\ManyToOne(targetEntity="Comprobante", inversedBy="lineas", cascade={"persist"})
      * 
      * @ORM\JoinColumn(name="comprobante_id", referencedColumnName="id")
      * 
      * @Assert\NotNull()
      */
-    protected $comp;
+    private $comprobante;
 
     /**
      *
      * @ORM\OneToOne(targetEntity="Producto")
-     * @JoinColumn(name="cod_prod", referencedColumnName="codigo")
+     * @ORM\JoinColumn(name="cod_prod", referencedColumnName="codigo")
      */
-    protected $prod;
+    private $producto;
 
     /**
      * @var integer
@@ -109,5 +109,51 @@ class Linea
     public function getPrecioUn()
     {
         return $this->precio_un;
+    }
+
+    /**
+     * Set comprobante
+     *
+     * @param \Distrifil\CuentaBundle\Entity\Comprobante $comprobante
+     * @return Linea
+     */
+    public function setComprobante(\Distrifil\CuentaBundle\Entity\Comprobante $comprobante = null)
+    {
+        $this->comprobante = $comprobante;
+    
+        return $this;
+    }
+
+    /**
+     * Get comprobante
+     *
+     * @return \Distrifil\CuentaBundle\Entity\Comprobante 
+     */
+    public function getComprobante()
+    {
+        return $this->comprobante;
+    }
+
+    /**
+     * Set producto
+     *
+     * @param \Distrifil\CuentaBundle\Entity\Producto $producto
+     * @return Linea
+     */
+    public function setProducto(\Distrifil\CuentaBundle\Entity\Producto $producto = null)
+    {
+        $this->producto = $producto;
+    
+        return $this;
+    }
+
+    /**
+     * Get producto
+     *
+     * @return \Distrifil\CuentaBundle\Entity\Producto 
+     */
+    public function getProducto()
+    {
+        return $this->producto;
     }
 }

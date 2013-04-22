@@ -5,7 +5,7 @@ namespace Distrifil\CuentaBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Cuenta
+ * Comprobante
  *
  * @ORM\MappedSuperclass
  */
@@ -28,21 +28,21 @@ class Comprobante
     private $letra;
 
     /**
-     * @var date
+     * @var datetime
      *
-     * @ORM\Column(name="fecha", type="date")
+     * @ORM\Column(name="fecha", type="datetime")
      */
     private $fecha;
     
     /**
-     * @ORM\ManyToOne(targetEntity="Cliente", reversedBy="id")
-     * @ORM\JoinColumn
+     * @ORM\ManyToOne(targetEntity="Cliente", inversedBy="id")
+     * @ORM\JoinColumn(name="cliente_id", referencedColumnName="id")
      * 
      */
     private $cliente;
     
     /**
-     * @ORM\OneTOMany(targetEntity="Linea", mappedBy="comp")
+     * @ORM\OneTOMany(targetEntity="Linea", mappedBy="comprobante", cascade={"persist"})
      * 
      */
     private $lineas;
@@ -51,6 +51,7 @@ class Comprobante
      * @var integer
      * 
      * @ORM\Column(name="afecta_cta", type="integer")
+     * 
      */
     private $afecta;
     
@@ -108,5 +109,77 @@ class Comprobante
         $this->total = $total;
     }
     
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->lineas = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+    
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set cliente
+     *
+     * @param \Distrifil\CuentaBundle\Entity\Cliente $cliente
+     * @return Comprobante
+     */
+    public function setCliente(\Distrifil\CuentaBundle\Entity\Cliente $cliente = null)
+    {
+        $this->cliente = $cliente;
+    
+        return $this;
+    }
+
+    /**
+     * Get cliente
+     *
+     * @return \Distrifil\CuentaBundle\Entity\Cliente 
+     */
+    public function getCliente()
+    {
+        return $this->cliente;
+    }
+
+    /**
+     * Add lineas
+     *
+     * @param \Distrifil\CuentaBundle\Entity\Linea $lineas
+     * @return Comprobante
+     */
+    public function addLinea(\Distrifil\CuentaBundle\Entity\Linea $lineas)
+    {
+        $this->lineas[] = $lineas;
+    
+        return $this;
+    }
+
+    /**
+     * Remove lineas
+     *
+     * @param \Distrifil\CuentaBundle\Entity\Linea $lineas
+     */
+    public function removeLinea(\Distrifil\CuentaBundle\Entity\Linea $lineas)
+    {
+        $this->lineas->removeElement($lineas);
+    }
+
+    /**
+     * Get lineas
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getLineas()
+    {
+        return $this->lineas;
+    }
 }
-?>

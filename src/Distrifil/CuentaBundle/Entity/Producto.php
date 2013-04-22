@@ -12,19 +12,12 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Producto
 {
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="id", type="integer")
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="AUTO")
-     */
-    private $id;
-
+   
     /**
      * @var string
      *
      * @ORM\Column(name="codigo", type="string", length=50)
+     * @ORM\Id
      */
     private $codigo;
 
@@ -43,16 +36,7 @@ class Producto
     private $precio;
 
 
-    /**
-     * Get id
-     *
-     * @return integer 
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
-
+    
     /**
      * Set codigo
      *
