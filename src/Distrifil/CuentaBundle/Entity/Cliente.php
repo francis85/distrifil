@@ -59,7 +59,7 @@ class Cliente
     /**
      * @ORM\OneToOne(targetEntity="Cuenta", mappedBy="cliente")
      */
-    private $cuenta
+    private $cuenta;
 
 
     /**
