@@ -9,7 +9,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 /**
  * Linea
  *
- * @ORM\Table()
+ * @ORM\Table("linea")
  * @ORM\Entity(repositoryClass="Distrifil\CuentaBundle\Entity\LineaRepository")
  */
 class Linea
@@ -24,10 +24,10 @@ class Linea
     private $id;
 
     /**
-     *
-     * @ORM\ManyToOne(targetEntity="Comprobante", inversedBy="lineas", cascade={"persist"})
      * 
-     * @ORM\JoinColumn(name="comprobante_id", referencedColumnName="id")
+     * @ORM\ManyToOne(targetEntity="Comprobante", inversedBy="lineas", cascade={"all"})
+     * 
+     * @ORM\JoinColumn(name="comprobante_id", referencedColumnName="id", nullable=false)
      * 
      * @Assert\NotNull()
      */

@@ -7,9 +7,10 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Comprobante
  *
- * @ORM\MappedSuperclass
+ * @ORM\Table("comprobante")
+ * @ORM\Entity
  */
-class Comprobante
+abstract class Comprobante
 {
     /**
      * @var integer
@@ -21,9 +22,9 @@ class Comprobante
     private $id;
 
     /**
-     * @var char
+     * @var integer
      *
-     * @ORM\Column(name="letra", type="char")
+     * @ORM\Column(name="letra", type="integer")
      */
     private $letra;
 
@@ -42,7 +43,8 @@ class Comprobante
     private $cliente;
     
     /**
-     * @ORM\OneTOMany(targetEntity="Linea", mappedBy="comprobante", cascade={"persist"})
+     * 
+     * @ORM\OneToMany(targetEntity="Linea", mappedBy="comprobante", cascade={"persist"})
      * 
      */
     private $lineas;
