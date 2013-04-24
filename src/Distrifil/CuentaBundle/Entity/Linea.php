@@ -9,29 +9,29 @@ use Symfony\Component\Validator\Constraints as Assert;
 /**
  * Linea
  *
- * @ORM\Table("linea")
+ * @ORM\Table(name="linea")
  * @ORM\Entity(repositoryClass="Distrifil\CuentaBundle\Entity\LineaRepository")
  */
 class Linea
 {
     /**
      * @var integer
-     *
-     * @ORM\Column(name="id", type="integer")
+     * 
      * @ORM\Id
+     * @ORM\Column(name="id", type="integer")
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
 
     /**
      * 
-     * @ORM\ManyToOne(targetEntity="Comprobante", inversedBy="lineas", cascade={"all"})
+     * @ORM\ManyToOne(targetEntity="Factura", inversedBy="lineas", cascade={"all"})
      * 
-     * @ORM\JoinColumn(name="comprobante_id", referencedColumnName="id", nullable=false)
+     * @ORM\JoinColumn(name="factura_id", referencedColumnName="id", nullable=false)
      * 
      * @Assert\NotNull()
      */
-    private $comprobante;
+    private $factura;
 
     /**
      *
@@ -112,29 +112,6 @@ class Linea
     }
 
     /**
-     * Set comprobante
-     *
-     * @param \Distrifil\CuentaBundle\Entity\Comprobante $comprobante
-     * @return Linea
-     */
-    public function setComprobante(\Distrifil\CuentaBundle\Entity\Comprobante $comprobante = null)
-    {
-        $this->comprobante = $comprobante;
-    
-        return $this;
-    }
-
-    /**
-     * Get comprobante
-     *
-     * @return \Distrifil\CuentaBundle\Entity\Comprobante 
-     */
-    public function getComprobante()
-    {
-        return $this->comprobante;
-    }
-
-    /**
      * Set producto
      *
      * @param \Distrifil\CuentaBundle\Entity\Producto $producto
@@ -155,5 +132,28 @@ class Linea
     public function getProducto()
     {
         return $this->producto;
+    }
+
+    /**
+     * Set factura
+     *
+     * @param \Distrifil\CuentaBundle\Entity\Factura $factura
+     * @return Linea
+     */
+    public function setFactura(\Distrifil\CuentaBundle\Entity\Factura $factura = null)
+    {
+        $this->factura = $factura;
+    
+        return $this;
+    }
+
+    /**
+     * Get factura
+     *
+     * @return \Distrifil\CuentaBundle\Entity\Factura 
+     */
+    public function getFactura()
+    {
+        return $this->factura;
     }
 }

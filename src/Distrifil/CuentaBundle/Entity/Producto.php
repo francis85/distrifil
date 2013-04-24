@@ -16,7 +16,7 @@ class Producto
     /**
      * @var string
      *
-     * @ORM\Column(name="codigo", type="string", length=50)
+     * @ORM\Column(name="cod_prod", type="string", length=50)
      * @ORM\Id
      */
     private $codigo;

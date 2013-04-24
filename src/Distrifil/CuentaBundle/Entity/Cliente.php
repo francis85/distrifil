@@ -187,4 +187,27 @@ class Cliente
     {
         return $this->locali;
     }
+
+    /**
+     * Set cuenta
+     *
+     * @param \Distrifil\CuentaBundle\Entity\Cuenta $cuenta
+     * @return Cliente
+     */
+    public function setCuenta(\Distrifil\CuentaBundle\Entity\Cuenta $cuenta = null)
+    {
+        $this->cuenta = $cuenta;
+    
+        return $this;
+    }
+
+    /**
+     * Get cuenta
+     *
+     * @return \Distrifil\CuentaBundle\Entity\Cuenta 
+     */
+    public function getCuenta()
+    {
+        return $this->cuenta;
+    }
 }

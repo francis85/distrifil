@@ -7,16 +7,16 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Comprobante
  *
- * @ORM\Table("comprobante")
+ * @ORM\Table(name="comprobante")
  * @ORM\Entity
  */
 abstract class Comprobante
 {
     /**
      * @var integer
-     *
-     * @ORM\Column(name="comprobante_id", type="integer")
+     * 
      * @ORM\Id
+     * @ORM\Column(name="comprobante_id", type="integer")
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
@@ -41,14 +41,7 @@ abstract class Comprobante
      * 
      */
     private $cliente;
-    
-    /**
-     * 
-     * @ORM\OneToMany(targetEntity="Linea", mappedBy="comprobante", cascade={"persist"})
-     * 
-     */
-    private $lineas;
-    
+       
     /**
      * @var integer
      * 
@@ -111,14 +104,7 @@ abstract class Comprobante
         $this->total = $total;
     }
     
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->lineas = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-    
+        
     /**
      * Get id
      *
@@ -150,38 +136,5 @@ abstract class Comprobante
     public function getCliente()
     {
         return $this->cliente;
-    }
-
-    /**
-     * Add lineas
-     *
-     * @param \Distrifil\CuentaBundle\Entity\Linea $lineas
-     * @return Comprobante
-     */
-    public function addLinea(\Distrifil\CuentaBundle\Entity\Linea $lineas)
-    {
-        $this->lineas[] = $lineas;
-    
-        return $this;
-    }
-
-    /**
-     * Remove lineas
-     *
-     * @param \Distrifil\CuentaBundle\Entity\Linea $lineas
-     */
-    public function removeLinea(\Distrifil\CuentaBundle\Entity\Linea $lineas)
-    {
-        $this->lineas->removeElement($lineas);
-    }
-
-    /**
-     * Get lineas
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getLineas()
-    {
-        return $this->lineas;
     }
 }

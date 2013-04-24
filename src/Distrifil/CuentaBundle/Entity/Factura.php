@@ -15,7 +15,7 @@ class Factura extends Comprobante
     /**
      * @var integer
      *
-     * @ORM\Column(name="id", type="integer")
+     * @ORM\Column(name="factura_id", type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
@@ -36,7 +36,13 @@ class Factura extends Comprobante
      */
     private $recibos;
 
-
+    /**
+     * 
+     * @ORM\OneToMany(targetEntity="Linea", mappedBy="factura", cascade={"persist"})
+     * 
+     */
+    private $lineas;
+    
     /**
      * Get id
      *
@@ -108,5 +114,38 @@ class Factura extends Comprobante
     public function getRecibos()
     {
         return $this->recibos;
+    }
+
+    /**
+     * Add lineas
+     *
+     * @param \Distrifil\CuentaBundle\Entity\Linea $lineas
+     * @return Factura
+     */
+    public function addLinea(\Distrifil\CuentaBundle\Entity\Linea $lineas)
+    {
+        $this->lineas[] = $lineas;
+    
+        return $this;
+    }
+
+    /**
+     * Remove lineas
+     *
+     * @param \Distrifil\CuentaBundle\Entity\Linea $lineas
+     */
+    public function removeLinea(\Distrifil\CuentaBundle\Entity\Linea $lineas)
+    {
+        $this->lineas->removeElement($lineas);
+    }
+
+    /**
+     * Get lineas
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getLineas()
+    {
+        return $this->lineas;
     }
 }
