@@ -1,0 +1,63 @@
+<?php
+
+namespace Distrifil\CuentaBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Cliente
+ *
+ * @ORM\Table(name="cliente")
+ * @ORM\Entity(repositoryClass="Distrifil\CuentaBundle\Entity\ClienteRepository")
+ */
+class Cliente
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="descli", type="string", length=200)
+     */
+    private $descli;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="domici", type="string", length=255)
+     */
+    private $domici;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="cuit", type="integer")
+     */
+    private $cuit;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="cond_iva", type="string", length=255)
+     */
+    private $cond_iva;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="locali", type="string", length=100)
+     */
+    private $locali;
+    
+    /**
+     * @ORM\OneToOne(targetEntity="Cuenta", mappedBy="cliente")
+     */
+    private $cuenta;
+}

@@ -190,27 +190,4 @@ class Recibo
     {
         return $this->facturas;
     }
-
-    /**
-     * Set cuenta
-     *
-     * @param \Distrifil\CuentaBundle\Entity\Cuenta $cuenta
-     * @return Recibo
-     */
-    public function setCuenta(\Distrifil\CuentaBundle\Entity\Cuenta $cuenta = null)
-    {
-        $this->cuenta = $cuenta;
-    
-        return $this;
-    }
-
-    /**
-     * Get cuenta
-     *
-     * @return \Distrifil\CuentaBundle\Entity\Cuenta 
-     */
-    public function getCuenta()
-    {
-        return $this->cuenta;
-    }
 }

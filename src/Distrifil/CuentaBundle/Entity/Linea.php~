@@ -36,7 +36,7 @@ class Linea
     /**
      *
      * @ORM\OneToOne(targetEntity="Producto")
-     * @ORM\JoinColumn(name="producto_id", referencedColumnName="id")
+     * @ORM\JoinColumn(name="cod_prod", referencedColumnName="codigo")
      */
     private $producto;
 

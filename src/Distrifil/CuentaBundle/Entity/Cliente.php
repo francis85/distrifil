@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Cliente
  *
- * @ORM\Table()
+ * @ORM\Table(name="cliente")
  * @ORM\Entity(repositoryClass="Distrifil\CuentaBundle\Entity\ClienteRepository")
  */
 class Cliente
@@ -60,7 +60,6 @@ class Cliente
      * @ORM\OneToOne(targetEntity="Cuenta", mappedBy="cliente")
      */
     private $cuenta;
-
 
     /**
      * Get id
@@ -163,7 +162,6 @@ class Cliente
     {
         return $this->cond_iva;
     }
-    
 
     /**
      * Set locali

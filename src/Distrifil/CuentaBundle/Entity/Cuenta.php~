@@ -223,37 +223,4 @@ class Cuenta
     {
         return $this->notasdeb;
     }
-
-    /**
-     * Add recibos
-     *
-     * @param \Distrifil\CuentaBundle\Entity\Recibo $recibos
-     * @return Cuenta
-     */
-    public function addRecibo(\Distrifil\CuentaBundle\Entity\Recibo $recibos)
-    {
-        $this->recibos[] = $recibos;
-    
-        return $this;
-    }
-
-    /**
-     * Remove recibos
-     *
-     * @param \Distrifil\CuentaBundle\Entity\Recibo $recibos
-     */
-    public function removeRecibo(\Distrifil\CuentaBundle\Entity\Recibo $recibos)
-    {
-        $this->recibos->removeElement($recibos);
-    }
-
-    /**
-     * Get recibos
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getRecibos()
-    {
-        return $this->recibos;
-    }
 }

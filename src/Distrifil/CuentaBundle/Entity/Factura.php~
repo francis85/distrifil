@@ -55,44 +55,4 @@ class Factura extends Comprobante
     {
         return $this->montoIva;
     }
-    
-    public function setCliente(\Distrifil\CuentaBundle\Entity\Cliente $cliente = null)
-    {
-        $this->cliente = $cliente;
-    
-        return $this;
-    }
-
-    /**
-     * Get cliente
-     *
-     * @return \Distrifil\CuentaBundle\Entity\Cliente 
-     */
-    public function getCliente()
-    {
-        return $this->cliente;
-    }
-
-    /**
-     * Set cuenta
-     *
-     * @param \Distrifil\CuentaBundle\Entity\Cuenta $cuenta
-     * @return Factura
-     */
-    public function setCuenta(\Distrifil\CuentaBundle\Entity\Cuenta $cuenta = null)
-    {
-        $this->cuenta = $cuenta;
-    
-        return $this;
-    }
-
-    /**
-     * Get cuenta
-     *
-     * @return \Distrifil\CuentaBundle\Entity\Cuenta 
-     */
-    public function getCuenta()
-    {
-        return $this->cuenta;
-    }
 }

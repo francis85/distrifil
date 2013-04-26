@@ -21,6 +21,13 @@ class Producto
      *
      */
     private $id;
+    
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="cod_prod", type="string", length=50)
+     */
+    private $codigo;
 
     /**
      * @var string
@@ -35,6 +42,31 @@ class Producto
      * @ORM\Column(name="precio", type="float")
      */
     private $precio;
+
+
+    
+    /**
+     * Set codigo
+     *
+     * @param string $codigo
+     * @return Producto
+     */
+    public function setCodigo($codigo)
+    {
+        $this->codigo = $codigo;
+    
+        return $this;
+    }
+
+    /**
+     * Get codigo
+     *
+     * @return string 
+     */
+    public function getCodigo()
+    {
+        return $this->codigo;
+    }
 
     /**
      * Set descrip
@@ -80,15 +112,5 @@ class Producto
     public function getPrecio()
     {
         return $this->precio;
-    }
-
-    /**
-     * Get id
-     *
-     * @return integer 
-     */
-    public function getId()
-    {
-        return $this->id;
     }
 }
