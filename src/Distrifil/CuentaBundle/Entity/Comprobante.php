@@ -46,6 +46,13 @@ abstract class Comprobante
      * @ORM\Column(name="subtotal", type="float")
      */
     protected $subtotal;
+    
+    /**
+     * @var float
+     *
+     * @ORM\Column(name="monto_iva", type="float")
+     */
+    protected $montoIva;
 
     /**
      * @var float
@@ -155,6 +162,23 @@ abstract class Comprobante
     public function getSubtotal()
     {
         return $this->subtotal;
+    }
+    
+    public function setMontoIva($montoIva)
+    {
+        $this->montoIva = $montoIva;
+    
+        return $this;
+    }
+    
+    /**
+     * Get montoIva
+     *
+     * @return float 
+     */
+    public function getMontoIva()
+    {
+        return $this->montoIva;
     }
 
     /**

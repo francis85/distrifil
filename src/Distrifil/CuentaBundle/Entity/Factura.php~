@@ -12,13 +12,6 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Factura extends Comprobante
 {
-    /**
-     * @var float
-     *
-     * @ORM\Column(name="monto_iva", type="float")
-     */
-    private $montoIva;
-
      /**
      *
      * @ORM\ManyToOne(targetEntity="Cliente")
@@ -34,25 +27,56 @@ class Factura extends Comprobante
     private $cuenta;
     
     /**
-     * Set montoIva
-     *
-     * @param float $montoIva
-     * @return Factura
+     * 
+     * @ORM\OneToMany(targetEntity="Linea", mappedBy="factura", cascade={"persist"})
+     * 
      */
-    public function setMontoIva($montoIva)
+    private $lineas;
+    
+    /**
+     * 
+     * @ORM\ManyToMany(targetEntity="Recibo", mappedBy="facturas")
+     * 
+     */
+    private $recibos;
+
+    public function setCliente(\Distrifil\CuentaBundle\Entity\Cliente $cliente = null)
     {
-        $this->montoIva = $montoIva;
+        $this->cliente = $cliente;
     
         return $this;
     }
 
     /**
-     * Get montoIva
+     * Get cliente
      *
-     * @return float 
+     * @return \Distrifil\CuentaBundle\Entity\Cliente 
      */
-    public function getMontoIva()
+    public function getCliente()
     {
-        return $this->montoIva;
+        return $this->cliente;
+    }
+
+    /**
+     * Set cuenta
+     *
+     * @param \Distrifil\CuentaBundle\Entity\Cuenta $cuenta
+     * @return Factura
+     */
+    public function setCuenta(\Distrifil\CuentaBundle\Entity\Cuenta $cuenta = null)
+    {
+        $this->cuenta = $cuenta;
+    
+        return $this;
+    }
+
+    /**
+     * Get cuenta
+     *
+     * @return \Distrifil\CuentaBundle\Entity\Cuenta 
+     */
+    public function getCuenta()
+    {
+        return $this->cuenta;
     }
 }

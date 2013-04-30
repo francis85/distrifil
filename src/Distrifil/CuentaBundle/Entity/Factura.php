@@ -12,13 +12,6 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Factura extends Comprobante
 {
-    /**
-     * @var float
-     *
-     * @ORM\Column(name="monto_iva", type="float")
-     */
-    private $montoIva;
-
      /**
      *
      * @ORM\ManyToOne(targetEntity="Cliente")
@@ -34,28 +27,19 @@ class Factura extends Comprobante
     private $cuenta;
     
     /**
-     * Set montoIva
-     *
-     * @param float $montoIva
-     * @return Factura
+     * 
+     * @ORM\OneToMany(targetEntity="Linea", mappedBy="factura", cascade={"persist"})
+     * 
      */
-    public function setMontoIva($montoIva)
-    {
-        $this->montoIva = $montoIva;
+    private $lineas;
     
-        return $this;
-    }
-
     /**
-     * Get montoIva
-     *
-     * @return float 
+     * 
+     * @ORM\ManyToMany(targetEntity="Recibo", mappedBy="facturas")
+     * 
      */
-    public function getMontoIva()
-    {
-        return $this->montoIva;
-    }
-    
+    private $recibos;
+
     public function setCliente(\Distrifil\CuentaBundle\Entity\Cliente $cliente = null)
     {
         $this->cliente = $cliente;
@@ -94,5 +78,77 @@ class Factura extends Comprobante
     public function getCuenta()
     {
         return $this->cuenta;
+    }
+    
+    public function __construct()
+    {
+        $this->lineas = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->recibos = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+    
+    /**
+     * Add lineas
+     *
+     * @param \Distrifil\CuentaBundle\Entity\Linea $lineas
+     * @return Factura
+     */
+    public function addLinea(\Distrifil\CuentaBundle\Entity\Linea $lineas)
+    {
+        $this->lineas[] = $lineas;
+    
+        return $this;
+    }
+
+    /**
+     * Remove lineas
+     *
+     * @param \Distrifil\CuentaBundle\Entity\Linea $lineas
+     */
+    public function removeLinea(\Distrifil\CuentaBundle\Entity\Linea $lineas)
+    {
+        $this->lineas->removeElement($lineas);
+    }
+
+    /**
+     * Get lineas
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getLineas()
+    {
+        return $this->lineas;
+    }
+
+    /**
+     * Add recibos
+     *
+     * @param \Distrifil\CuentaBundle\Entity\Recibo $recibos
+     * @return Factura
+     */
+    public function addRecibo(\Distrifil\CuentaBundle\Entity\Recibo $recibos)
+    {
+        $this->recibos[] = $recibos;
+    
+        return $this;
+    }
+
+    /**
+     * Remove recibos
+     *
+     * @param \Distrifil\CuentaBundle\Entity\Recibo $recibos
+     */
+    public function removeRecibo(\Distrifil\CuentaBundle\Entity\Recibo $recibos)
+    {
+        $this->recibos->removeElement($recibos);
+    }
+
+    /**
+     * Get recibos
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getRecibos()
+    {
+        return $this->recibos;
     }
 }
