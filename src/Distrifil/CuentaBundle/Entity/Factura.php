@@ -28,7 +28,7 @@ class Factura extends Comprobante
     
     /**
      * 
-     * @ORM\OneToMany(targetEntity="Linea", mappedBy="factura", cascade={"persist"})
+     * @ORM\OneToMany(targetEntity="LineaFactura", mappedBy="factura", cascade={"persist"})
      * 
      */
     private $lineas;
@@ -40,6 +40,18 @@ class Factura extends Comprobante
      */
     private $recibos;
 
+    public function __construct()
+    {
+        $this->lineas = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->recibos = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Set cliente
+     *
+     * @param \Distrifil\CuentaBundle\Entity\Cliente $cliente
+     * @return Factura
+     */
     public function setCliente(\Distrifil\CuentaBundle\Entity\Cliente $cliente = null)
     {
         $this->cliente = $cliente;
@@ -79,20 +91,14 @@ class Factura extends Comprobante
     {
         return $this->cuenta;
     }
-    
-    public function __construct()
-    {
-        $this->lineas = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->recibos = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-    
+
     /**
      * Add lineas
      *
-     * @param \Distrifil\CuentaBundle\Entity\Linea $lineas
+     * @param \Distrifil\CuentaBundle\Entity\LineaFactura $lineas
      * @return Factura
      */
-    public function addLinea(\Distrifil\CuentaBundle\Entity\Linea $lineas)
+    public function addLinea(\Distrifil\CuentaBundle\Entity\LineaFactura $lineas)
     {
         $this->lineas[] = $lineas;
     
@@ -102,9 +108,9 @@ class Factura extends Comprobante
     /**
      * Remove lineas
      *
-     * @param \Distrifil\CuentaBundle\Entity\Linea $lineas
+     * @param \Distrifil\CuentaBundle\Entity\LineaFactura $lineas
      */
-    public function removeLinea(\Distrifil\CuentaBundle\Entity\Linea $lineas)
+    public function removeLinea(\Distrifil\CuentaBundle\Entity\LineaFactura $lineas)
     {
         $this->lineas->removeElement($lineas);
     }

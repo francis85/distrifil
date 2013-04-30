@@ -5,36 +5,34 @@ namespace Distrifil\CuentaBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
-
 /**
- * Linea
+ * LineaNotaDebito
  *
- * @ORM\Table(name="linea")
- * @ORM\Entity(repositoryClass="Distrifil\CuentaBundle\Entity\LineaRepository")
+ * @ORM\Table("lineanotadebito")
+ * @ORM\Entity
  */
-class Linea
+class LineaNotaDebito
 {
     /**
      * @var integer
-     * 
-     * @ORM\Id
+     *
      * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
 
     /**
      * 
-     * @ORM\ManyToOne(targetEntity="Factura", inversedBy="lineas", cascade={"all"})
+     * @ORM\ManyToOne(targetEntity="NotaDebito", inversedBy="lineas", cascade={"all"})
      * 
-     * @ORM\JoinColumn(name="factura_id", referencedColumnName="id", nullable=false)
+     * @ORM\JoinColumn(name="notadebito_id", referencedColumnName="id", nullable=false)
      * 
      * @Assert\NotNull()
      */
-    private $factura;
+    private $notadebito;
 
     /**
-     *
      * @ORM\OneToOne(targetEntity="Producto")
      * @ORM\JoinColumn(name="producto_id", referencedColumnName="id")
      */
@@ -66,10 +64,56 @@ class Linea
     }
 
     /**
+     * Set factura
+     *
+     * @param string $factura
+     * @return LineaNotaDebito
+     */
+    public function setFactura($factura)
+    {
+        $this->factura = $factura;
+    
+        return $this;
+    }
+
+    /**
+     * Get factura
+     *
+     * @return string 
+     */
+    public function getFactura()
+    {
+        return $this->factura;
+    }
+
+    /**
+     * Set producto
+     *
+     * @param string $producto
+     * @return LineaNotaDebito
+     */
+    public function setProducto($producto)
+    {
+        $this->producto = $producto;
+    
+        return $this;
+    }
+
+    /**
+     * Get producto
+     *
+     * @return string 
+     */
+    public function getProducto()
+    {
+        return $this->producto;
+    }
+
+    /**
      * Set cant
      *
      * @param integer $cant
-     * @return Linea
+     * @return LineaNotaDebito
      */
     public function setCant($cant)
     {
@@ -92,7 +136,7 @@ class Linea
      * Set precio_un
      *
      * @param float $precioUn
-     * @return Linea
+     * @return LineaNotaDebito
      */
     public function setPrecioUn($precioUn)
     {
@@ -112,48 +156,25 @@ class Linea
     }
 
     /**
-     * Set producto
+     * Set notadebito
      *
-     * @param \Distrifil\CuentaBundle\Entity\Producto $producto
-     * @return Linea
+     * @param \Distrifil\CuentaBundle\Entity\NotaDebito $notadebito
+     * @return LineaNotaDebito
      */
-    public function setProducto(\Distrifil\CuentaBundle\Entity\Producto $producto = null)
+    public function setNotadebito(\Distrifil\CuentaBundle\Entity\NotaDebito $notadebito)
     {
-        $this->producto = $producto;
+        $this->notadebito = $notadebito;
     
         return $this;
     }
 
     /**
-     * Get producto
+     * Get notadebito
      *
-     * @return \Distrifil\CuentaBundle\Entity\Producto 
+     * @return \Distrifil\CuentaBundle\Entity\NotaDebito 
      */
-    public function getProducto()
+    public function getNotadebito()
     {
-        return $this->producto;
-    }
-
-    /**
-     * Set factura
-     *
-     * @param \Distrifil\CuentaBundle\Entity\Factura $factura
-     * @return Linea
-     */
-    public function setFactura(\Distrifil\CuentaBundle\Entity\Factura $factura = null)
-    {
-        $this->factura = $factura;
-    
-        return $this;
-    }
-
-    /**
-     * Get factura
-     *
-     * @return \Distrifil\CuentaBundle\Entity\Factura 
-     */
-    public function getFactura()
-    {
-        return $this->factura;
+        return $this->notadebito;
     }
 }

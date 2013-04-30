@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * NotaDebito
  *
- * @ORM\Table(name="nota_debito")
+ * @ORM\Table(name="notadebito")
  * @ORM\Entity
  */
 class NotaDebito extends Comprobante
@@ -34,6 +34,21 @@ class NotaDebito extends Comprobante
     private $cuenta;
     
     /**
+     * 
+     * @ORM\OneToMany(targetEntity="LineaNotaDebito", mappedBy="notadebito", cascade={"persist"})
+     * 
+     */
+    private $lineas;
+    
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->lineas = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+    
+    /**
      * Set observacion
      *
      * @param string $observacion
@@ -55,13 +70,7 @@ class NotaDebito extends Comprobante
     {
         return $this->observacion;
     }
-    
-    /**
-     * Set cliente
-     *
-     * @param \Distrifil\CuentaBundle\Entity\Cliente $cliente
-     * @return NotaDebito
-     */
+
     public function setCliente(\Distrifil\CuentaBundle\Entity\Cliente $cliente = null)
     {
         $this->cliente = $cliente;
@@ -100,5 +109,38 @@ class NotaDebito extends Comprobante
     public function getCuenta()
     {
         return $this->cuenta;
+    }
+
+    /**
+     * Add lineas
+     *
+     * @param \Distrifil\CuentaBundle\Entity\LineaNotaDebito $lineas
+     * @return NotaDebito
+     */
+    public function addLinea(\Distrifil\CuentaBundle\Entity\LineaNotaDebito $lineas)
+    {
+        $this->lineas[] = $lineas;
+    
+        return $this;
+    }
+
+    /**
+     * Remove lineas
+     *
+     * @param \Distrifil\CuentaBundle\Entity\LineaNotaDebito $lineas
+     */
+    public function removeLinea(\Distrifil\CuentaBundle\Entity\LineaNotaDebito $lineas)
+    {
+        $this->lineas->removeElement($lineas);
+    }
+
+    /**
+     * Get lineas
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getLineas()
+    {
+        return $this->lineas;
     }
 }

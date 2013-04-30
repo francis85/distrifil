@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * NotaDebito
  *
- * @ORM\Table(name="nota_debito")
+ * @ORM\Table(name="notadebito")
  * @ORM\Entity
  */
 class NotaDebito extends Comprobante
@@ -34,25 +34,9 @@ class NotaDebito extends Comprobante
     private $cuenta;
     
     /**
-     * Set observacion
-     *
-     * @param string $observacion
-     * @return NotaDebito
+     * 
+     * @ORM\OneToMany(targetEntity="LineaNotaDebito", mappedBy="notadebito", cascade={"persist"})
+     * 
      */
-    public function setObservacion($observacion)
-    {
-        $this->observacion = $observacion;
-    
-        return $this;
-    }
-
-    /**
-     * Get observacion
-     *
-     * @return string 
-     */
-    public function getObservacion()
-    {
-        return $this->observacion;
-    }
+    private $lineas;
 }

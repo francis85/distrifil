@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * NotaCredito
  *
- * @ORM\Table(name="nota_credito")
+ * @ORM\Table(name="notacredito")
  * @ORM\Entity
  */
 class NotaCredito extends Comprobante
@@ -34,11 +34,18 @@ class NotaCredito extends Comprobante
     private $cuenta;
     
     /**
+     * 
+     * @ORM\OneToMany(targetEntity="LineaNotaCredito", mappedBy="notacredito", cascade={"persist"})
+     * 
+     */
+    private $lineas;
+    
+    /**
      * Set observacion
      *
      * @param string $observacion
      * @return NotaCredito
-     */
+     */  
     public function setObservacion($observacion)
     {
         $this->observacion = $observacion;
@@ -100,5 +107,43 @@ class NotaCredito extends Comprobante
     public function getCuenta()
     {
         return $this->cuenta;
+    }
+    
+    public function __construct()
+    {
+        $this->lineas = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+    
+    /**
+     * Add lineas
+     *
+     * @param \Distrifil\CuentaBundle\Entity\LineaNotaCredito $lineas
+     * @return NotaCredito
+     */
+    public function addLinea(\Distrifil\CuentaBundle\Entity\LineaNotaCredito $lineas)
+    {
+        $this->lineas[] = $lineas;
+    
+        return $this;
+    }
+
+    /**
+     * Remove lineas
+     *
+     * @param \Distrifil\CuentaBundle\Entity\LineaNotaCredito $lineas
+     */
+    public function removeLinea(\Distrifil\CuentaBundle\Entity\LineaNotaCredito $lineas)
+    {
+        $this->lineas->removeElement($lineas);
+    }
+
+    /**
+     * Get lineas
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getLineas()
+    {
+        return $this->lineas;
     }
 }
