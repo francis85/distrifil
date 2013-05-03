@@ -3,6 +3,7 @@
 namespace Distrifil\CuentaBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Recibo
@@ -25,6 +26,8 @@ class Recibo
      * @var integer
      *
      * @ORM\Column(name="forma_pago", type="integer")
+     * 
+     * @Assert\Choice(choices = {"Efectivo", "Cheque"}, message = "Choose a valid gender.")
      */
     private $forma_pago;
     

@@ -16,7 +16,7 @@ class ReciboType extends AbstractType
             ->add('cheques',
                         'collection',
                             array(
-                                'label' => ¨,
+                                'label' => ' ',
                                 'type' => new ChequeType(),
                                 'allow_add' => true,
                                 'required' => false,
