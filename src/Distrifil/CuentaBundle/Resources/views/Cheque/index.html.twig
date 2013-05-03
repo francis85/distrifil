@@ -1,0 +1,45 @@
+<h1>Cheque list</h1>
+
+<table class="records_list">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Numero</th>
+            <th>Banco</th>
+            <th>Monto</th>
+            <th>Fecha_pago</th>
+            <th>Fecha_emision</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for entity in entities %}
+        <tr>
+            <td><a href="{{ path('distrifil_cheque_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+            <td>{{ entity.numero }}</td>
+            <td>{{ entity.banco }}</td>
+            <td>{{ entity.monto }}</td>
+            <td>{% if entity.fechapago %}{{ entity.fechapago|date('Y-m-d H:i:s') }}{% endif %}</td>
+            <td>{% if entity.fechaemision %}{{ entity.fechaemision|date('Y-m-d H:i:s') }}{% endif %}</td>
+            <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('distrifil_cheque_show', { 'id': entity.id }) }}">show</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('distrifil_cheque_edit', { 'id': entity.id }) }}">edit</a>
+                    </li>
+                </ul>
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+<ul>
+    <li>
+        <a href="{{ path('distrifil_cheque_new') }}">
+            Create a new entry
+        </a>
+    </li>
+</ul>

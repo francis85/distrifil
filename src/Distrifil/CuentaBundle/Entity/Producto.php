@@ -3,12 +3,14 @@
 namespace Distrifil\CuentaBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * Producto
  *
  * @ORM\Table()
  * @ORM\Entity(repositoryClass="Distrifil\CuentaBundle\Entity\ProductoRepository")
+ * @UniqueEntity("codigo")
  */
 class Producto
 {
@@ -21,8 +23,18 @@ class Producto
      *
      */
     private $id;
-
+    
     /**
+     * 
+     * @var string
+     * 
+     * @ORM\Column(name="codigo", type="string")
+     */
+    
+    private $codigo;
+    
+
+        /**
      * @var string
      *
      * @ORM\Column(name="descrip", type="string", length=150)
@@ -35,6 +47,25 @@ class Producto
      * @ORM\Column(name="precio", type="float")
      */
     private $precio;
+    
+     /**
+     * Get codigo
+     *
+     * @return string 
+     */
+    public function getCodigo() {
+        return $this->codigo;
+    }
+    
+    /**
+     * Set codigo
+     *
+     * @param string $codigo
+     * @return Producto
+     */
+    public function setCodigo($codigo) {
+        $this->codigo = $codigo;
+    }
 
     /**
      * Set descrip
