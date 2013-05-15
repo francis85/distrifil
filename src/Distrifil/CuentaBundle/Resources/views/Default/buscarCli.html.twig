@@ -1,0 +1,27 @@
+{% extends "DistrifilCuentaBundle::layout.html.twig" %}
+{%block body%}
+<div id="contenido">
+    <form action="{{ path('facturar') }}" method="post">
+                           
+        <table>            
+            <tr>
+                <td>                    
+                    <h2>Cliente:</h2>
+                </td>
+                <td>
+                    <select name="cliente">
+                      {% for cli in clientes %}
+                       <option value="{{cli.id}}">{{cli.descli}}</option>
+                      {%endfor%}
+                    </select>                                     
+                </td>
+                <td>
+                <button type="submit">Facturar</button>
+                </td>
+            </tr>                       
+        </table>
+    </form>
+        
+</div> 
+
+{%endblock%}

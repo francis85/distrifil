@@ -1,0 +1,5 @@
+{% if highlight %}
+Found: {{ result.name|highlight }}
+{% else %}
+{{ result.name }}
+{% endif %}
