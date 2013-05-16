@@ -15,7 +15,7 @@
     <tbody>
     {% for entity in entities %}
         <tr>
-            <td><a href="{{ path('distrifil_cheque_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+            <td><a href="{{ path('cheque_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
             <td>{{ entity.numero }}</td>
             <td>{{ entity.banco }}</td>
             <td>{{ entity.monto }}</td>
@@ -24,10 +24,10 @@
             <td>
                 <ul>
                     <li>
-                        <a href="{{ path('distrifil_cheque_show', { 'id': entity.id }) }}">show</a>
+                        <a href="{{ path('cheque_show', { 'id': entity.id }) }}">show</a>
                     </li>
                     <li>
-                        <a href="{{ path('distrifil_cheque_edit', { 'id': entity.id }) }}">edit</a>
+                        <a href="{{ path('cheque_edit', { 'id': entity.id }) }}">edit</a>
                     </li>
                 </ul>
             </td>
@@ -38,7 +38,7 @@
 
 <ul>
     <li>
-        <a href="{{ path('distrifil_cheque_new') }}">
+        <a href="{{ path('cheque_new') }}">
             Create a new entry
         </a>
     </li>

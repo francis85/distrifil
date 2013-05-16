@@ -7,28 +7,27 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
-use Distrifil\CuentaBundle\Entity\Recibo;
-use Distrifil\CuentaBundle\Form\ReciboType;
 use Distrifil\CuentaBundle\Entity\Cheque;
+use Distrifil\CuentaBundle\Form\ChequeType;
 
 /**
- * Recibo controller.
+ * Cheque controller.
  *
- * @Route("/distrifil/recibo")
+ * @Route("/cheque")
  */
-class ReciboController extends Controller
+class ChequeController extends Controller
 {
     /**
-     * Lists all Recibo entities.
+     * Lists all Cheque entities.
      *
-     * @Route("/", name="distrifil_recibo")
+     * @Route("/", name="cheque")
      * @Template()
      */
     public function indexAction()
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entities = $em->getRepository('DistrifilCuentaBundle:Recibo')->findAll();
+        $entities = $em->getRepository('DistrifilCuentaBundle:Cheque')->findAll();
 
         return array(
             'entities' => $entities,
@@ -36,19 +35,19 @@ class ReciboController extends Controller
     }
 
     /**
-     * Finds and displays a Recibo entity.
+     * Finds and displays a Cheque entity.
      *
-     * @Route("/{id}/show", name="distrifil_recibo_show")
+     * @Route("/{id}/show", name="cheque_show")
      * @Template()
      */
     public function showAction($id)
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('DistrifilCuentaBundle:Recibo')->find($id);
+        $entity = $em->getRepository('DistrifilCuentaBundle:Cheque')->find($id);
 
         if (!$entity) {
-            throw $this->createNotFoundException('Unable to find Recibo entity.');
+            throw $this->createNotFoundException('Unable to find Cheque entity.');
         }
 
         $deleteForm = $this->createDeleteForm($id);
@@ -60,70 +59,66 @@ class ReciboController extends Controller
     }
 
     /**
-     * Displays a form to create a new Recibo entity.
+     * Displays a form to create a new Cheque entity.
      *
-     * @Route("/new", name="distrifil_recibo_new")
-     * @Template("DistrifilCuentaBundle:Recibo:new.html.twig")
+     * @Route("/new", name="cheque_new")
+     * @Template()
      */
     public function newAction()
     {
-        $recibo = new Recibo;
-        $cheque = new Cheque;
-        $recibo ->addCheque($cheque);
-        $form   = $this->createForm(new ReciboType(), $recibo);
+        $entity = new Cheque();
+        $form   = $this->createForm(new ChequeType(), $entity);
 
         return array(
-            'entity' => $recibo,
+            'entity' => $entity,
             'form'   => $form->createView(),
         );
     }
 
     /**
-     * Creates a new Recibo entity.
+     * Creates a new Cheque entity.
      *
-     * @Route("/create", name="distrifil_recibo_create")
+     * @Route("/create", name="cheque_create")
      * @Method("POST")
-     * @Template("DistrifilCuentaBundle:Recibo:new.html.twig")
+     * @Template("DistrifilCuentaBundle:Cheque:new.html.twig")
      */
     public function createAction(Request $request)
     {
-        $recibo  = new Recibo;
-        $cheque = new Cheque;
-        $recibo ->addCheque($cheque);
-        $form = $this->createForm(new ReciboType(), $recibo);
+        $entity  = new Cheque();
+        $form = $this->createForm(new ChequeType(), $entity);
         $form->bind($request);
 
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
-            $em->persist($recibo);
+            $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('distrifil_recibo_show', array('id' => $recibo->getId())));
+            return $this->redirect($this->generateUrl('cheque_show', array('id' => $entity->getId())));
         }
 
         return array(
-            'recibo' => $recibo,
+            'entity' => $entity,
             'form'   => $form->createView(),
         );
     }
 
     /**
-     * Displays a form to edit an existing Recibo entity.
+     * Displays a form to edit an existing Cheque entity.
      *
-     * @Route("/{id}/edit", name="distrifil_recibo_edit")
+     * @Route("/{id}/edit", name="cheque_edit")
      * @Template()
      */
     public function editAction($id)
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('DistrifilCuentaBundle:Recibo')->find($id);
+        $entity = $em->getRepository('DistrifilCuentaBundle:Cheque')->find($id);
 
         if (!$entity) {
-            throw $this->createNotFoundException('Unable to find Recibo entity.');
+            throw $this->createNotFoundException('Unable to find Cheque entity.');
         }
 
-        $editForm = $this->createForm(new ReciboType(), $entity);
+        $editForm = $this->createForm(new ChequeType(), $entity);
         $deleteForm = $this->createDeleteForm($id);
 
         return array(
@@ -134,31 +129,31 @@ class ReciboController extends Controller
     }
 
     /**
-     * Edits an existing Recibo entity.
+     * Edits an existing Cheque entity.
      *
-     * @Route("/{id}/update", name="distrifil_recibo_update")
+     * @Route("/{id}/update", name="cheque_update")
      * @Method("POST")
-     * @Template("DistrifilCuentaBundle:Recibo:edit.html.twig")
+     * @Template("DistrifilCuentaBundle:Cheque:edit.html.twig")
      */
     public function updateAction(Request $request, $id)
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('DistrifilCuentaBundle:Recibo')->find($id);
+        $entity = $em->getRepository('DistrifilCuentaBundle:Cheque')->find($id);
 
         if (!$entity) {
-            throw $this->createNotFoundException('Unable to find Recibo entity.');
+            throw $this->createNotFoundException('Unable to find Cheque entity.');
         }
 
         $deleteForm = $this->createDeleteForm($id);
-        $editForm = $this->createForm(new ReciboType(), $entity);
+        $editForm = $this->createForm(new ChequeType(), $entity);
         $editForm->bind($request);
 
         if ($editForm->isValid()) {
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('distrifil_recibo_edit', array('id' => $id)));
+            return $this->redirect($this->generateUrl('cheque_edit', array('id' => $id)));
         }
 
         return array(
@@ -169,9 +164,9 @@ class ReciboController extends Controller
     }
 
     /**
-     * Deletes a Recibo entity.
+     * Deletes a Cheque entity.
      *
-     * @Route("/{id}/delete", name="distrifil_recibo_delete")
+     * @Route("/{id}/delete", name="cheque_delete")
      * @Method("POST")
      */
     public function deleteAction(Request $request, $id)
@@ -181,17 +176,17 @@ class ReciboController extends Controller
 
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
-            $entity = $em->getRepository('DistrifilCuentaBundle:Recibo')->find($id);
+            $entity = $em->getRepository('DistrifilCuentaBundle:Cheque')->find($id);
 
             if (!$entity) {
-                throw $this->createNotFoundException('Unable to find Recibo entity.');
+                throw $this->createNotFoundException('Unable to find Cheque entity.');
             }
 
             $em->remove($entity);
             $em->flush();
         }
 
-        return $this->redirect($this->generateUrl('distrifil_recibo'));
+        return $this->redirect($this->generateUrl('cheque'));
     }
 
     private function createDeleteForm($id)

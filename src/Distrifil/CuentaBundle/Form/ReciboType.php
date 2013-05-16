@@ -16,14 +16,11 @@ class ReciboType extends AbstractType
             ->add('cheques',
                         'collection',
                             array(
-                                'label' => ' ',
                                 'type' => new ChequeType(),
                                 'allow_add' => true,
-                                'required' => false,
                                 'by_reference' => false
                             )
                     )
-            ->add('facturas')
             ->add('total')
         ;
     }
