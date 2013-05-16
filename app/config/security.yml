@@ -51,7 +51,7 @@ security:
 
     firewalls:
         main:
-            pattern: ^/
+            pattern: ^/inicio
             form_login:
                 provider: fos_userbundle
                 csrf_provider: form.csrf_provider

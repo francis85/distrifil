@@ -1,0 +1,220 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 311.0,
+		"selected_items":
+		[
+			[
+				"Package Control: ",
+				"Package Control: Disable Package"
+			],
+			[
+				"pac",
+				"Package Control: Install Package"
+			],
+			[
+				"in",
+				"Package Control: Install Package"
+			],
+			[
+				"twig",
+				"Snippet: Symfony2 / Twig / Extension class"
+			],
+			[
+				"pack",
+				"Package Control: Install Package"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"packa",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 512.0
+	},
+	"console":
+	{
+		"height": 125.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/D/Symfony2/distrifil/composer.json",
+		"/D/Symfony2/Symfony/src/Blogger/BlogBundle/Controller/PageController.php",
+		"/D/Symfony2/Symfony/src/Blogger/BlogBundle/Entity/Comment.php",
+		"/D/Symfony2/Symfony/src/Blogger/BlogBundle/Entity/Blog.php",
+		"/D/Symfony2/Symfony/src/Blogger/BlogBundle/Controller/BlogController.php",
+		"/D/Symfony2/Symfony/src/Blogger/BlogBundle/Resources/views/Blog/show.html.twig",
+		"/D/Symfony2/Symfony/src/Blogger/BlogBundle/Resources/views/Comment/index.html.twig",
+		"/D/Symfony2/Symfony/src/Blogger/BlogBundle/Resources/public/css/blog.css",
+		"/D/Symfony2/Symfony/src/Blogger/BlogBundle/Entity/BlogRepository.php",
+		"/D/Symfony2/Symfony/src/Blogger/BlogBundle/Entity/CommentRepository.php",
+		"/D/Symfony2/Symfony/src/Blogger/BlogBundle/DataFixtures/ORM/CommentFixtures.php",
+		"/D/Symfony2/Symfony/src/Blogger/BlogBundle/DataFixtures/ORM/BlogFixtures.php",
+		"/D/Symfony2/Symfony/src/Blogger/BlogBundle/Resources/views/Page/index.html.twig",
+		"/D/Symfony2/Symfony/src/Blogger/BlogBundle/Entity/Blog.php~",
+		"/D/Symfony2/Symfony/src/Blogger/BlogBundle/Resources/config/routing.yml",
+		"/D/Symfony2/Symfony/app/config/parameters.yml",
+		"/D/Symfony2/Symfony/app/AppKernel.php",
+		"/D/Symfony2/Symfony/app/config/routing.yml",
+		"/D/Symfony2/Symfony/app/config/routing_dev.yml",
+		"/D/Symfony2/Symfony/app/config/config_dev.yml",
+		"/D/Symfony2/Symfony/src/Blogger/BlogBundle/Resources/config/config.yml",
+		"/D/Symfony2/Symfony/src/Blogger/BlogBundle/Resources/views/Page/contact.html.twig",
+		"/D/Symfony2/Symfony/app/config/config.yml",
+		"/D/Symfony2/Symfony/src/Blogger/BlogBundle/Resources/views/Page/contactEmail.txt.twig",
+		"/D/Symfony2/Symfony/app/Resources/views/base.html.twig",
+		"/D/Symfony2/Symfony/src/Blogger/BlogBundle/Entity/Enquiry.php",
+		"/D/Symfony2/Symfony/src/Blogger/BlogBundle/Form/EnquiryType.php",
+		"/D/Symfony2/Symfony/src/Blogger/BlogBundle/Resources/views/base.html.twig",
+		"/D/Symfony2/Symfony/src/Blogger/BlogBundle/Resources/public/blog.css",
+		"/D/Symfony2/Symfony/web/bundles/bloggerblog/blog.css",
+		"/D/Symfony2/Symfony/src/Blogger/BlogBundle/Resources/views/Page/about.html.twig",
+		"/D/Symfony2/Symfony/src/Blogger/BlogBundle/Resources/views/Default/index.html.twig",
+		"/D/Symfony2/Symfony/src/Acme/DemoBundle/Controller/DemoController.php",
+		"/D/Symfony2/Symfony/src/Blogger/BlogBundle/Controller/DefaultController.php",
+		"/D/Symfony2/Symfony/src/Acme/DemoBundle/Resources/views/Demo/contact.html.twig",
+		"/D/Symfony2/Symfony/src/Blogger/BlogBundle/Resources/views/Default/Page/index.html.twig",
+		"/D/Symfony2/Symfony/src/Blogger/BlogBundle/Resources/views/Default/base.html.twig",
+		"/D/Symfony2/Symfony/web/css/screen.css",
+		"/D/Symfony2/Symfony/src/Acme/DemoBundle/Resources/config/services.xml",
+		"/D/Symfony2/Symfony/app/Resources/views/baseCopia.html.twig",
+		"/D/Symfony2/Symfony/src/Blogger/BlogBundle/BloggerBlogBundle.php",
+		"/D/Symfony2/distrifil/src/Distrifil/CuentaBundle/Entity/Cheque.php",
+		"/D/Symfony2/distrifil/src/Distrifil/CuentaBundle/Form/ReciboType.php",
+		"/D/Symfony2/distrifil/src/Distrifil/CuentaBundle/Form/ChequeType.php",
+		"/D/Symfony2/distrifil/src/Distrifil/CuentaBundle/Entity/Factura.php",
+		"/D/Symfony2/distrifil/src/Distrifil/CuentaBundle/Entity/Linea.php",
+		"/C/Users/Ed/AppData/Roaming/Sublime Text 2/Packages/User/Package Control.sublime-settings",
+		"/C/Users/Ed/AppData/Roaming/Sublime Text 2/Packages/Package Control/Package Control.sublime-settings",
+		"/C/Users/Ed/AppData/Roaming/Sublime Text 2/Packages/User/Preferences.sublime-settings",
+		"/C/Users/Ed/AppData/Roaming/Sublime Text 2/Packages/Default/Preferences.sublime-settings"
+	],
+	"find":
+	{
+		"height": 0.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+			"D:\\Symfony2\\Symfony\\src\\Blogger\\BlogBundle\\Resources\\views\\Page"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"index"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"replace":
+	{
+		"height": 0.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"",
+				"/D/Symfony2/distrifil/src/Distrifil/CuentaBundle/Entity/Linea.php"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 162.0,
+	"status_bar_visible": true
+}
