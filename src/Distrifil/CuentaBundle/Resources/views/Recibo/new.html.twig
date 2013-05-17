@@ -1,11 +1,11 @@
 {% extends "DistrifilCuentaBundle::layout.html.twig" %}
 
 {% block body %}
-<div id="contenido">
+<div id="form">
     <form class="well "action="{{ path('distrifil_recibo_create') }}" method="post" {{ form_enctype(form) }}>
         {{ form_row(form.forma_pago) }}
         {{ form_row(form.cuenta) }}
-    <ul class="tags" data-prototype="{{ form_widget(form.cheques.vars.prototype)|e }}">
+    <ul class="cheques" data-prototype="{{ form_widget(form.cheques.vars.prototype)|e }}">
         {% for cheques in form.cheques %}
             <li>{{ form_row(cheques.numero) }}</li>
             <li>{{ form_row(cheques.banco) }}</li>
@@ -16,7 +16,7 @@
     </ul>
         <script>    
         // Get the ul that holds the collection of tags
-        var collectionHolder = $('ul.tags');
+        var collectionHolder = $('ul.cheques');
 
         // setup an "add a tag" link
         //var $addChequeLink = $('<a href="#" class="distrifil_cheque_create">Agregar Cheque</a>');
@@ -35,12 +35,12 @@
                 e.preventDefault();
 
                 // add a new tag form (see next code block)
-                addTagForm(collectionHolder, $newLinkLi);
+                addChequeForm(collectionHolder, $newLinkLi);
             });
         });
         
         $(document).on('click', '.close', function(){
-                $(this).closest('.tags').fadeOut(500, function() {
+                $(this).closest('.cheques').fadeOut(500, function() {
                     $(this).remove();
                 });
             });

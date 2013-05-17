@@ -20,8 +20,9 @@ h3 {font-size:17px;color:#fff;display:inline}
 #in-header2 {background:#505050 url("../images/header.jpg") top right no-repeat;height:202px}
 #footer {padding:5px;border-top:#999 1px dashed;background:#505050;height:45px}
 h1 {margin:0;padding:15px 30px 0 10px;font-weight:normal;font-size:35px}
-#contenido {color:#333;margin:0;padding-left:50px;padding-top:25px;line-height:17px;height: 600px}
+#contenido {color:#333;margin:0;padding-right:50px;padding-top:25px;line-height:17px;height: 600px}
 #footer {color:#999933;font-size:11px}
-input {border:1px solid #c0c0c0;color:#454545;font-size:11px;letter-spacing:1px}
+input {border:1px solid #c0c0c0;color:#454545;font-size:11px;letter-spacing:1px;    alignment-adjust: auto;
+}
 input.searchText {width:150px;height:18px;padding-top:2px;border:#ccc 1px solid}
 input.searchSubmit {color:#0080c0;background:#fff;border:1px solid #fff;font-size:12px;width:50px;height:19px}

@@ -6,7 +6,9 @@
 body {padding:10px;margin:0;font-size:12px;font-family:tahoma, sans-serif;letter-spacing:1px;line-height:160%;background:#006699 url(../images/bg.gif) repeat;color:#454545}
 #container {width:920px;padding:10px;background:#F1F1F1;margin:0 auto;border:1px solid #ccc}
 #header {height:70px; margin: 10px 0px 0px 30px}
-input, form {margin:0;padding:0;float:left}
+input, form {margin:auto;padding:auto;float:next;    alignment-adjust: auto;
+    size: auto;
+}
 #wrapper {width:920px;background:#fff}
 #left {float:left;width:220px;margin:5px 0 10px 0;padding:5px;background:#999933;color:#fff;text-align:justify}
 #content {float:left;width:660px;margin:5px 0 10px 20px;padding:5px;text-align:justify}
