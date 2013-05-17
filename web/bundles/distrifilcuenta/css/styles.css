@@ -15,7 +15,11 @@ input, form {margin:0;padding:0;float:left}
 h3 {font-size:17px;color:#fff;display:inline}
 #content img {float:right;width:180px;height:120px;margin:8px;border:2px solid #ccc}
 #left img {float:left;width:120px;height:80px;margin:8px;border:2px solid #ccc}
+<<<<<<< HEAD
+#logo {width:350px;height:45px;padding:10px 0 0 50px;margin-left:25px;background:url(../images/imagenlogo.png) left bottom no-repeat}
+=======
 #logo {width:350px;height:45px;padding:10px 0 0 50px;background:url(../images/logo.png) left bottom no-repeat}
+>>>>>>> 6bab3f310c910146e700f73491f63d25e5e9af59
 #search {float:right;text-align:right;width:225px}
 #in-header2 {background:#505050 url("../images/header.jpg") top right no-repeat;height:202px}
 #footer {padding:5px;border-top:#999 1px dashed;background:#505050;height:45px}
