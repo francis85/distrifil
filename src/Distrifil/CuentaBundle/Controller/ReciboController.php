@@ -63,17 +63,17 @@ class ReciboController extends Controller
      * Displays a form to create a new Recibo entity.
      *
      * @Route("/new", name="distrifil_recibo_new")
-     * @Template()
+     * @Template("DistrifilCuentaBundle:Recibo:new.html.twig")
      */
     public function newAction()
     {
-        $entity = new Recibo();
-        $cheque = new Cheque();
-        $entity ->addCheque($cheque);
-        $form   = $this->createForm(new ReciboType(), $entity);
+        $recibo = new Recibo;
+        $cheque = new Cheque;
+        $recibo ->addCheque($cheque);
+        $form   = $this->createForm(new ReciboType(), $recibo);
 
         return array(
-            'entity' => $entity,
+            'entity' => $recibo,
             'form'   => $form->createView(),
         );
     }
@@ -87,20 +87,22 @@ class ReciboController extends Controller
      */
     public function createAction(Request $request)
     {
-        $entity  = new Recibo();
-        $form = $this->createForm(new ReciboType(), $entity);
+        $recibo  = new Recibo;
+        $cheque = new Cheque;
+        $recibo ->addCheque($cheque);
+        $form = $this->createForm(new ReciboType(), $recibo);
         $form->bind($request);
 
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
-            $em->persist($entity);
+            $em->persist($recibo);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('distrifil_recibo_show', array('id' => $entity->getId())));
+            return $this->redirect($this->generateUrl('distrifil_recibo_show', array('id' => $recibo->getId())));
         }
 
         return array(
-            'entity' => $entity,
+            'recibo' => $recibo,
             'form'   => $form->createView(),
         );
     }

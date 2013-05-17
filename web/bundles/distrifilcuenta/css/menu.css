@@ -1,0 +1,71 @@
+#headermenu{
+	width: 600px; 
+	margin: 30px 0px 0px 50px;
+	height: 40px;
+	display: block;
+	background: #9CA8B6;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+ul#mainmenu, ul#mainmenu ul{list-style: none; padding: 5px;}
+
+ul#mainmenu li {
+	display: block;
+	float: left;
+	margin: 0;
+        padding: 5px 20px 15px 20px;
+	position: relative;
+	background: url(images/menu-li.jpg) no-repeat right 5px;
+	line-height: 18px;
+}
+
+ul#mainmenu li a {
+	color: #FAFAFA;
+        font-weight:bold;
+	text-decoration: none;
+	
+}
+ul#mainmenu li a:hover{
+	color: #000;
+}
+
+/* Sub Level Nav */
+ul#mainmenu li ul {
+	background: #E1E1E1;
+	border-bottom: solid 2px #C1C1C1;
+	border-top: solid 2px #D1D1D1;
+	border-left: solid 1px #D1D1D1;
+	border-right: solid 1px #D1D1D1;
+	margin: 12px 0 0 0;
+	padding: 0 10px 0;
+	width: 130px;
+        position: absolute;
+
+}
+
+ul#mainmenu li ul li {
+	border-bottom: 1px solid #C1C1C1;
+	display: block;
+	float: none;
+	height: 14px;
+	padding: 10px 0;
+	text-align: left;
+	margin: 0;
+	width: 140px;
+	background: none;
+}
+ul#mainmenu li ul li.last{border-bottom: none;}
+
+ul#mainmenu li ul li a {
+	color: #313131;
+}
+
+ul#mainmenu li ul li a:hover {
+	color: #000;
+}
+
+ul#mainmenu li ul li:last-child:not(li.arrow) {
+	border: 0;
+}
+

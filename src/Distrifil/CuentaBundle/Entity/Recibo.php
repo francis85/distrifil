@@ -4,6 +4,8 @@ namespace Distrifil\CuentaBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+use Doctrine\Common\Collections\ArrayCollection;
+use Distrifil\CuentaBundle\Entity\Cheque;
 
 /**
  * Recibo
@@ -33,7 +35,7 @@ class Recibo
     
     /**
      * 
-     * @ORM\OneToMany(targetEntity="Cheque", mappedBy="numero")
+     * @ORM\OneToMany(targetEntity="Cheque", mappedBy="numero", cascade={"persist"})
      */
     private $cheques;
     
@@ -101,8 +103,8 @@ class Recibo
      */
     public function __construct()
     {
-        $this->cheques = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->facturas = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->cheques = new ArrayCollection();
+        $this->facturas = new ArrayCollection();
     }
     
     /**
@@ -131,13 +133,12 @@ class Recibo
     /**
      * Add cheques
      *
-     * @param \Distrifil\CuentaBundle\Entity\Cheque $cheques
+     * @param \Distrifil\CuentaBundle\Entity\Cheque $cheque
      * @return Recibo
      */
     public function addCheque(\Distrifil\CuentaBundle\Entity\Cheque $cheques)
     {
-        $this->cheques[] = $cheques;
-    
+        $this->cheques[]=$cheques;
         return $this;
     }
 

@@ -1,16 +1,83 @@
-<h1>Recibo creation</h1>
+{% extends "DistrifilCuentaBundle::layout.html.twig" %}
 
-<form action="{{ path('distrifil_recibo_create') }}" method="post" {{ form_enctype(form) }}>
-    {{ form_widget(form) }}
-    <p>
-        <button type="submit">Create</button>
-    </p>
-</form>
+{% block body %}
+<div id="contenido">
+    <form class="well "action="{{ path('distrifil_recibo_create') }}" method="post" {{ form_enctype(form) }}>
+        {{ form_row(form.forma_pago) }}
+        {{ form_row(form.cuenta) }}
+    <ul class="tags" data-prototype="{{ form_widget(form.cheques.vars.prototype)|e }}">
+        {% for cheques in form.cheques %}
+            <li>{{ form_row(cheques.numero) }}</li>
+            <li>{{ form_row(cheques.banco) }}</li>
+            <li>{{ form_row(cheques.monto) }}</li>
+            <li>{{ form_row(cheques.fecha_emision) }}</li>
+            <li>{{ form_row(cheques.fecha_pago) }}</li>
+        {% endfor %}
+    </ul>
+        <script>    
+        // Get the ul that holds the collection of tags
+        var collectionHolder = $('ul.tags');
 
-<ul class="record_actions">
-    <li>
-        <a href="{{ path('distrifil_recibo') }}">
-            Back to the list
-        </a>
-    </li>
-</ul>
+        // setup an "add a tag" link
+        //var $addChequeLink = $('<a href="#" class="distrifil_cheque_create">Agregar Cheque</a>');
+        var $newLinkLi = $('<a href="#" class="distrifil_cheque_create">Agregar Cheque</a>');
+
+        jQuery(document).ready(function() {
+            // add the "add a tag" anchor and li to the tags ul
+            collectionHolder.parent().append($newLinkLi);
+
+            // count the current form inputs we have (e.g. 2), use that as the new
+            // index when inserting a new item (e.g. 2)
+            collectionHolder.data('index', collectionHolder.find(':input').length);
+
+            $newLinkLi.on('click', function(e) {
+                // prevent the link from creating a "#" on the URL
+                e.preventDefault();
+
+                // add a new tag form (see next code block)
+                addTagForm(collectionHolder, $newLinkLi);
+            });
+        });
+        
+        $(document).on('click', '.close', function(){
+                $(this).closest('.tags').fadeOut(500, function() {
+                    $(this).remove();
+                });
+            });
+        function addChequeForm(collectionHolder, $newLinkLi) {
+                // Get the data-prototype explained earlier
+                var prototype = collectionHolder.data('prototype');
+
+                // get the new index
+                var index = collectionHolder.data('index');
+
+                // Replace '__name__' in the prototype's HTML to
+                // instead be a number based on how many items we have
+                var newForm = prototype.replace(/__name__/g, index);
+
+                // increase the index with one for the next item
+                collectionHolder.data('index', index + 1);
+
+                // Display the form in the page in an li, before the "Add a tag" link li
+                var $newFormLi = $('<li></li>').append(newForm);
+                $newLinkLi.before($newFormLi);
+         }
+    </script>
+        {{ form_row(form.total) }}
+        <p>
+            <button type="submit">Create</button>
+        </p>
+    </form>
+        
+    <ul class="record_actions">
+        <li>
+            <a href="{{ path('distrifil_recibo') }}">
+                Back to the list
+            </a>
+        </li>
+    </ul>
+</div>
+{%endblock %}
+{% block javascript %}
+    
+{% endblock %}

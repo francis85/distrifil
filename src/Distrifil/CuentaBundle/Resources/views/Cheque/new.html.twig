@@ -1,6 +1,6 @@
 <h1>Cheque creation</h1>
 
-<form action="{{ path('distrifil_cheque_create') }}" method="post" {{ form_enctype(form) }}>
+<form action="{{ path('cheque_create') }}" method="post" {{ form_enctype(form) }}>
     {{ form_widget(form) }}
     <p>
         <button type="submit">Create</button>
@@ -9,7 +9,7 @@
 
 <ul class="record_actions">
     <li>
-        <a href="{{ path('distrifil_cheque') }}">
+        <a href="{{ path('cheque') }}">
             Back to the list
         </a>
     </li>

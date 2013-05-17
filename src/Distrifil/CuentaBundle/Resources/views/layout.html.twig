@@ -29,7 +29,7 @@
             <li><a href="#">Cuentas</a>
                 <ul>
                     <li><a href="{{path('buscarcli')}}">Facturar</a></li>
-                    <li><a href="#">Pago</a></li>
+                    <li><a href="{{path('distrifil_recibo_new')}}">Pago</a></li>
                     <li><a href="#">Estado</a></li>
                     <li><a href="#">Movimientos</a></li>
                 </ul>
@@ -48,7 +48,8 @@
                 
 {%block body%}                
 {%endblock%}
-                
+{%block javascript%}
+{%endblock%}                 
 {%block footer%}            
                       
         <div id="wrapper">   
@@ -56,9 +57,7 @@
                 <div class="fleft">Copyright Curso CtrolF</div>
             </div>
         </div>               
-    </div>
-{%block javascript%}
-{%endblock%}       
+    </div>     
 </body>
 </html>
 {%endblock%}
